@@ -1,6 +1,6 @@
 /*
 Julian Trasar Div E
-E/S ej 5
+E/S ej5
 Debemos lograr tomar nombre y edad por ID y mostrarlos concatenados 
 ej.: "Usted se llama José y tiene 66 años" 	*/
 function mostrar()
@@ -10,7 +10,7 @@ function mostrar()
 	var edad;
 
 
-//guardo los datos en laa variables
+//guardo los datos en las variables
 nombre = document.getElementById("txtIdNombre").value;
 edad= document.getElementById("txtIdEdad").value;
 
@@ -21,3 +21,5 @@ edad= document.getElementById("txtIdEdad").value;
 
 //txtIdNombre
 //txtIdEdad
+
+

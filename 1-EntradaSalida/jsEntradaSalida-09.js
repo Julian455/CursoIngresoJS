@@ -24,7 +24,7 @@ function mostrarAumento()
 	resultado = sueldo + aumento;
 
 	//motramos el resultado
-     document.getElementById("txtIdResultado").value = resultado;
+     document.getElementById("txtIdResultado").value = resultado; 
 
 
 }
