@@ -34,7 +34,7 @@ function mostrar()
 
     {
 
-      alert("usted es un adolescente");
+      alert("usted es un adolescente"); 
 
     }
     

@@ -1,6 +1,19 @@
+/*
+Julian Trasar Div E
+EJ if 9
+Al presionar el Botón, mostrar un número Random del 1 al 10 inclusive
+*/
+
 function mostrar()
 {
-	//Genero el número RANDOM entre 1 y 10 
-	alert("ok");	
+	//creo variable
+	var aleatorio = Math.random();
+	var enteroAleatorio;
+
+	//Math.floor(aleatorio * (10 - 1 + 1) + 1);
+
+	enteroAleatorio = Math.floor(aleatorio * (10 - 1 + 1) + 1);
+
+	alert(enteroAleatorio);
 
 }//FIN DE LA FUNCIÓN
