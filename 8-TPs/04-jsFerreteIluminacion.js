@@ -10,5 +10,13 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+ 	//declaro las variables
+    //var lamapritas y descuento 
+
+    //calculamos las 6 lamaprias con el 50% menos
+
+    //B hacemos el decuento de si compramos 5 lamapritas por 35 pesos en argeninaluz tiene ,
+    //deucneto del 40 sino de 30 hacer 5 * 35 40/100
+
+    //
 }
