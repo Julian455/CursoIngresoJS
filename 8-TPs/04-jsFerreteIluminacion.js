@@ -1,4 +1,8 @@
-/*4.	Para el departamento de iluminación:
+/*
+Julian Trasar Div E
+TP 4
+
+4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
 A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
@@ -8,15 +12,71 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
-{
- 	//declaro las variables
-    //var lamapritas y descuento 
+ function CalcularPrecio() {
+    var cantidadLamparas;
+    var marca;
+    var precio;
+    var precioDescuento;
+    var impuesto;
+    var precioFinal;
 
-    //calculamos las 6 lamaprias con el 50% menos
+    precio = 35
 
-    //B hacemos el decuento de si compramos 5 lamapritas por 35 pesos en argeninaluz tiene ,
-    //deucneto del 40 sino de 30 hacer 5 * 35 40/100
+    //traemos cantidadLamparas y marca por id 
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
 
-    //
+    //parseamos
+    precioFinal = parseInt(precioFinal);
+    cantidadLamparas = parseInt(cantidadLamparas);
+
+    //a
+    if (cantidadLamparas > 5) {
+        descuento = 50 / 100;
+
+        //B
+    }
+    if (cantidadLamparas == 5) {
+        descuento = 40 / 100;
+    } else {
+        descuento = 30 / 100;
+    }
+
+    {
+        if (cantidadLamparas == 4)
+
+            if (marca == "ArgentinaLuz" || marca == "FelipeLamparas") {
+                descuento = 25 / 100
+
+            }
+
+        if (cantidadLamparas == 3) {
+
+
+            if (marca == "ArgentinaLamparas") {
+                descuento = 15 / 100;
+            }
+
+            if (marca == "FelipeMarca") {
+                descuento = 10 / 100;
+            } else {
+                descuento = 5 / 100;
+            }
+
+        }
+
+        precioFinal = cantidadLamparas * precio;
+        precioFinal = precioFinal - (precioFinal * descuento);
+
+        if (precioFinal > 120) {
+            impuesto = precioFinal * 10 / 100;
+            precioFinal = precioFinal + impuesto;
+            alert("usted pago " + precioFinal + " de IIBB. , siendo " + impuesto + " el impuesto que se pago ");
+        }
+
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+
+
+    }
 }
