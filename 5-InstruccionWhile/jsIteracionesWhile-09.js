@@ -14,9 +14,6 @@ function mostrar()
 	 respuesta = "si";
 	 ingresoPrimerNumero=false;//bandera o flag 
 
-	 numeroMaximo=1000;
-	 numeroMinimo=-1000;
-
 	 while(respuesta=="si")
 	 {
 		 do
@@ -33,7 +30,7 @@ function mostrar()
 			 if(numeroMinimo>numeroIngresado || ingresoPrimerNumero == false)
 			 {
 				 numeroMinimo=numeroIngresado;//guardo
-				 ingresoPrimerNumero==true;
+				 ingresoPrimerNumero=true;
 			 }
 
 		respuesta = prompt("Desea seguir ingresando numeros? si/no");
