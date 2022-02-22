@@ -15,7 +15,7 @@ function mostrar()
 	//declarar contadores y variables 
 	var respuesta;
 	var numeroIngresado;
-	var sumaNegativos=0;
+	var sumaNegativos=0; 
 
 	respuesta="si";
 

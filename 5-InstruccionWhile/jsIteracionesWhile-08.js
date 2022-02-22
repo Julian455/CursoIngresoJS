@@ -39,7 +39,7 @@ function mostrar()
 	}
 
 
-	txtIdSuma.value=sumaPositivos;
+	txtIdSuma.value=sumaPositivos;  
 	txtIdProducto.value=multiplicacionNegativos; 
 
 }//FIN DE LA FUNCIÓN

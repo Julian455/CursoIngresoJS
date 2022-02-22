@@ -32,7 +32,7 @@ function mostrar()
 		
 	  }
 	 
-	}
+	} 
 
 
 	document.getElementById("txtIdSuma").value=acumulador;
