@@ -117,14 +117,6 @@ function ComenzarIngreso ()
    document.getElementById("txtIdLegajo").value=numeroDeLegajo;
    document.getElementById("txtIdNacionalidad").value=nacionalidadesIngresada;
 
-   
-
-
-   
-
-   
-
-
 
 
 }

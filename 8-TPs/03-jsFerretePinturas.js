@@ -38,7 +38,7 @@ function CentigradosFahrenheit ()
    fahrenheit = (temperatura * 9/5) + 32;
 
    //mostramos por alert "0  centígrados son 32 Fahrenheit "
-   alert(temperatura + " centigrados son " + fahrenheit + " fahrenheit ");
+   alert(temperatura + " centigrados son " + fahrenheit + " fahrenheit " );
 
 	
 }
