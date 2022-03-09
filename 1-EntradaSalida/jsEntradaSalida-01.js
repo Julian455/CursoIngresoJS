@@ -1,441 +1,330 @@
+
+
 /*
-Julian Trasar Div e
 
-1.	Una empresa de venta de cosméticos necesita un programa que permita la carga de productos vendidos,
- junto a los datos del vendedor. Se requiere ingresar los siguientes campos:
-•	Vendedor: Juan, María, Lucrecia
-•	Tipo producto: Perfume, Shampoo o Maquillaje
-•	Importe de la venta (Numero mayor que cero)
-No hay un límite total de ventas, y cada vendedor puede realizar varias ventas.
-Una vez finalizada la carga de productos vendidos se debe calcular la comisión del vendedor.
-Si la suma de las ventas realizadas por cada vendedor está entre 5000 y 10000, la comisión será del 15%.
-Si la comisión supera los 10000, la comisión será del 20%. En caso contrario la comisión será del 5%.
+Julian Trasar Div E
 
-Se debe mostrar:
-a.	Promedio de ventas por cada vendedor.
-b.	Cantidad de perfumes que vendió María
-c.	El importe más barato junto con el vendedor que lo vendió.
-d.	El nombre del vendedor con menor comisión.
-
+Ejercicio 1
+Una reconocida empresa de desarrollo nos contratara para realizar un nuevo proyecto, necesitamos desarrollar un
+software para el Hospital Italiano en el sector odontológico, que nos pide recopilar la información para los 5 turnos
+que dio en el día, para eso debemos tomar los siguientes datos:
+- El apellido.
+- Obra social (“Ioma”, “Osde” y “Omint”).
+- Tipo de tratamiento (“Extracción”,” Caries” y “Brackets”).
+- Edad (entre 0 y 150 años inclusive).
+Debemos informar:
+a) Promedio de edad de los que utilizaron Brackets.
+b) La obra social más atendida.
+c) El apellido de la persona más joven con caries.
 
 */
-
 /*function mostrar()
 {
 
-	//declaro variables
-	var respuesta="si";
-	var vendedor;
-	var tipoProducto;
-	var importe;
-	var importeMasBarato;
-	var vendedorMasBarato;
-	
-	var comisionJuan;
-	var comisionLucrecia;
-	var comisionMaria;
-	var vendedorMenorComision;
-	var banderaDelPrimerImporte=0;
-	var contadorVentasLucrecia=0;
-	var contadorVentasJuan=0;
-	var contadorVentasMaria=0;
-	var acumuloImporteLucrecia=0;
-	var acumuloImporteJuan=0;
-	var acumuloImporteMaria=0;
-	var contadorPerfume=0;
+	//declaramos variables
+	var apellido;
+	var obraSocial;
+	var tratamiento;
+	var edad;
+
+	var contadorTurnos=0;
+	var acumuladorIoma=0;
+	var acumuladorOsde=0;
+	var acumuladorOmint=0;
+	var apellidoMasJoven;
+	var flagUno;
+	var edadMenor;
+	var acumuladorExtraccion=0;
+	var acumuladorCaries=0;
+	var acumuladorBrackets=0;
+	var tratamientosTotales;
+	var contadorTratamientos=0;
+	var promedioBrackets=0;
+	//var acumuladorTotales=0;
+	var mensaje;
 
 
-	while(respuesta=="si")
-	{
+			while(contadorTurnos<5)
+			{
+				apellido=prompt("Ingrese apellido");
 
-		//validaciones
-        //(Juan - Maria - Lucrecia)
-        vendedor=prompt("ingrese el vendedor(Juan - Maria - Lucrecia)");
-        vendedor=vendedor.toLowerCase();
-       
-        while(vendedor!="juan" && vendedor!="maria" && vendedor != "lucrecia")
-        {
-        	vendedor=prompt("Error, ingrese el vendedor(Juan - Maria - Lucrecia)");
-        	vendedor=vendedor.toLowerCase();
-        }
+				obraSocial=prompt("Ingrese obra social :ioma, osde y omint ");
+					while(obraSocial!="ioma" && obraSocial!="osde" && obraSocial!="omint")
+					{
+						obraSocial=prompt("Error ingrese: ioma, osde y omint ")
+					}
 
-        //(Perfume - Shampoo - Maquillaje)
-        tipoProducto=prompt("ingrese el tipo de tipo producto(Perfume - Shampoo - Maquillaje)");
-        tipoProducto=tipoProducto.toLowerCase();
-       
-        while(tipoProducto!="perfume" && tipoProducto!="shampoo" && tipoProducto!= "maquillaje")
-        {
-        	tipoProducto=prompt("Error, ingrese el tipo de tipo producto(Perfume - Shampoo - Maquillaje)");
-        	tipoProducto=tipoProducto.toLowerCase();
-    	}
+				tratamiento=prompt("Ingrese tratamiento:extraccion, caries y brackets");
+				 	while(tratamiento!="extraccion" && tratamiento!="caries" && tratamiento!="brackets")
+				 	{
+				 		tratamiento=prompt(" Error,ingrese: extraccion, caries y brackets ");
+				 	}
 
-       
+				edad=prompt("Ingrese edad");
+				edad=parseInt(edad);
+					while(isNaN(edad) || edad<0 || edad>150)
+					{
+						edad=prompt("Error , no puede ser menor a 0 ni mayor a 150 años");
+						edad=parseInt(edad);
+					}
+
+					//b) La obra social más atendida.
+					switch(obraSocial)
+					{
+						case "ioma":
+						acumuladorIoma=acumuladorIoma+obraSocial;
+						break;
+						case "osde":
+						acumuladorOsde=acumuladorOsde+obraSocial;
+						break;
+						case "omint":
+						acumuladorOmint=acumuladorOmint+obraSocial;
+					}
+
+					//c) El apellido de la persona más joven con caries.
+
+              if(tratamiento="caries" && (flagUno==0 || edad>edadMenor))
+              {
+              	edadMenor=edad;
+              	apellidoMasJoven=apellido;
+              }
+
+              acumuladorExtraccion+acumuladorCaries+acumuladorBrackets;
+              contadorTratamientos++;
 
 
-        //Importe (mayor que 0)
+            contadorTurnos++;
+			}
         
-        importe=parseInt(prompt("Ingrese el importe de la venta"));
+        //acumuladorTotales=acumuladorExtraccion + acumuladorCaries + acumuladorBrackets;
+        promedioBrackets=acumuladorBrackets/contadorTratamientos *100;
 
-        while(importe<1)
+        if(acumuladorIoma>acumuladorOsde && acumuladorIoma<acumuladorOmint)
         {
-        	importe=parseInt(prompt("Error, Ingrese el importe de la venta"));
+        	mensaje="obra social ioma es la mas atentida";
+        }
+        else if(acumuladorOsde>acumuladorOmint)
+        {
+        	mensaje="obra social osde es la mas atendida";
+        }
+        else
+        {
+        	mensaje="obra social omint es la mas atendida";
         }
 
-		switch(vendedor)
-		{
-			case "juan":
-				contadorVentasJuan++;
-				acumuloImporteJuan=acumuloImporteJuan+importe; 
-			break;
-			case "maria":
-				contadorVentasMaria++;
-				acumuloImporteMaria = acumuloImporteMaria + importe;
-				if(tipoProducto =="perfume")
-				{
-					contadorPerfume++;
-				}
-			break;
-			case "lucrecia":
-				contadorVentasLucrecia++;
-				acumuloImporteLucrecia=acumuloImporteLucrecia+importe;
-			break;
-		}
+
+
+        document.write("El promedio de edad que utilizan brackets es " + promedioBrackets + "<br>");
+        document.write("la " + mensaje + "<br>" );
+        document.write("El apellido mas joven con caries es " + apellidoMasJoven + "<br>");	
 
 
 
-		if(importe < importeMasBarato || banderaDelPrimerImporte==0)
-		{
-			importeMasBarato = importe;
-			vendedorMasBarato = vendedor;
-			banderaDelPrimerImporte = 1;
-		}
-
-
-		respuesta=prompt("Desea seguir ingresando datos?si-no");
-
-	}
-
-
-	/*Si la suma de las ventas realizadas por cada vendedor está entre 5000 y 10000, 
-	la comisión será del 15%. 
-	Si la comisión supera los 10000, la comisión será del 20%. En caso contrario la comisión 
-	será del 5%.*/
-
-	/* if(acumuloImporteJuan>10000)
-	{ 
-		comisionJuan = acumuloImporteJuan*0.2;
-	}
-	else
-	{
-		if(acumuloImporteJuan>5000)
-		{
-			comisionJuan = acumuloImporteJuan * 0.15;
-		}
-		else
-		{
-			comisionJuan = acumuloImporteJuan * 0.05;
-		}
-	}
-	if(acumuloImporteMaria>10000)
-	{ 
-		comisionMaria = acumuloImporteMaria*0.2;
-	}
-	else
-	{
-		if(acumuloImporteMaria>5000)
-		{
-			comisionMaria = acumuloImporteMaria * 0.15;
-		}
-		else
-		{
-			comisionMaria = acumuloImporteMaria * 0.05
-		}
-	}
-	if(acumuloImporteLucrecia>10000)
-	{ 
-		comisionLucrecia = acumuloImporteLucrecia*0.2;
-	}
-	else
-	{
-		if(acumuloImporteLucrecia>5000)
-		{
-			comisionLucrecia = acumuloImporteLucrecia * 0.15;
-		}
-		else
-		{
-			comisionLucrecia = acumuloImporteLucrecia * 0.05;
-		}
-	}
-
-	//a)Promedio de ventas por cada vendedor.
-	document.write("El Promedio de ventas de Maria es: "+ (acumuloImporteMaria/contadorVentasMaria) + "<br>");
-	document.write("El Promedio de ventas de Juan es: "+ (acumuloImporteJuan/contadorVentasJuan) + "<br>");
-	document.write("El Promedio de ventas de Lucrecia es: "+ (acumuloImporteLucrecia/contadorVentasLucrecia) + "<br>");
-
-	//b)Cantidad de perfumes que vendió María
-	document.write("La cantidad de perfumes que vendio Maria es: "+ contadorPerfume + "<br>");
-
-	//c)El importe mas barato junto con el vendedor que lo vendió.
-	document.write("El importe mas barato es: $"+ importeMasBarato +" y el vendedor que lo vendió es "+vendedorMasBarato+ "<br>");
-
-	//d)El nombre del vendedor con menor comisión.
-
-	if(comisionJuan<comisionMaria && comisionJuan<comisionLucrecia)
-	{
-		vendedorMenorComision= "Juan";
-	}
-	else
-	{
-		if(comisionMaria<comisionLucrecia)
-		{
-			vendedorMenorComision="Maria";
-		}
-		else
-		{
-			vendedorMenorComision="Lucrecia";
-		}
-	}
-
-	document.write("El vendedor con menor comision es: "+vendedorMenorComision);
-
+ 
 }
+*/
 
 /*
 
-
-/*
 Julian Trasar Div E
 
-2. Se necesita llevar el registro de un vacunatorio. Para ello se podrá registrar los datos de las personas vacunadas mientras el usuario quiera.
-De cada vacunado se solicita:
-Nombre 
-Edad (mayor o igual a 12)
-Vacuna (“rusa”, “china”, “americana”)
-Si la edad esta entre 12 y 17 años ambos incluidos solo se permite la vacuna americana
-Dosis (“P” en caso de ser la primera dosis o “S” en caso de ser la segunda dosis)
-Genero (Femenino, Masculino)
+Ejercicio 2
+El hotel UTN 5 Estrellas nos pide desarrollar un software para hacer sus reservas, la carga de datos pedirá lo
+siguiente:
+- Apellido de la persona.
+- Tipo de reserva (“individual”, “Parejas” o” familiar”).
+- Cantidad de personas (tiene que ser mayor a 0 y menor a 10).
+- Temporada (“otoño”, “invierno”, “primavera” y “verano”).
+Debemos informar:
+a) La temporada en la que reservan más parejas.
+b) El promedio de las personas en las habitaciones familiares.
+c) El total de personas que ingresaron en el hotel, en otoño.
 
-Informar:
-a-	Promedio de edad de los que se vacunaron con la china.
-b-	Nombre y vacuna del masculino más joven.
-c-	De las personas que recibieron la vacuna americana que porcentaje son menores de edad
-d-	Porcentaje de los que están vacunados con 1 dosis sobre el total de vacunados
-e-	Vacuna más inoculada
-*/ 
+
+*/
 /*function mostrar()
 {
-    //declaramos variables
-    var nombreIngresado;
-    var edadIngresada
-    var tipoVacuna;
-    var generoIngresado
-    var vacunaDada;
-    var promedioEdadIngresadaChina;
-    var respuesta="si";
 
-    do
-    {
-    	nombreIngresado=prompt("Ingrese su nombre");
-    	nombreIngresado=nombreIngresado.toLowerCase();
+   //declaramos variables
+   var apellido;
+   var tipoReserva;
+   var cantidadPersonas;
+   var temporada;
+   var respuesta="si";
 
-    	tipoVacuna=prompt("Que vacuna se dio: rusa, china , americana");
-    	tipoVacuna=tipoVacuna.toLowerCase();
+   var acumuladorOtoño=0;
+   var acumuladorInvierno=0;
+   var acumuladorPrimavera=0;
+   var acumuladorVerano=0;
+   var acumuladorTotales;
+   var totalOtoño;;
 
-    	edadIngresada=prompt("Si tiene entre 12 y 17 años solo se permite la vacuna Americana");
-    	edadIngresada=parseInt(edadIngresada);
-    	while(edadIngresada>11 && edadIngresada<18)
-    	{
-    		edadIngresada=prompt("Error,Si tiene entre 12 y 17 años solo se permite la vacuna Americana");
-    		edadIngresada=parseInt(edadIngresada);
+    		do
+    		{
+    			apellido=prompt("Ingrese apellido");
 
-    	}
+    			tipoReserva=prompt("ingrese que tipo de reserva quiere individual, parejas o familiar");
+    				while(tipoReserva!="individual" && tipoReserva!="parejas" && tipoReserva!="familiar")
+    				{
+    					tipoReserva=prompt("error");
+    				}
 
-    	vacunaDada=prompt("Ingrese p si se dio la primera dosis , o ingrese s y el la segunda dosis");
-    	vacunaDada=vacunaDada.toLowerCase();
+    			cantidadPersonas=prompt("ingrese cantidad de personas");
+    			cantidadPersonas=parseInt(cantidadPersonas);
+    				while(isNaN(cantidadPersonas) || cantidadPersonas<0 || cantidadPersonas>10)
+    				{
+    					cantidadPersonas=prompt("Error no puede ser ni menor a 0 ni mayor a 10 personas")
+    					cantidadPersonas=parseInt(cantidadPersonas);
+    				}
 
-    	generoIngresado=prompt("Ingrese f o m ");
-    	generoIngresado=generoIngresado.toLowerCase();
+    			temporada=prompt("Ingrese temporada otoño, invierno,primavera y verano");
+    				while(temporada!= "otoño" && temporada!= "invierno" && temporada!= "primavera" && temporada!= "verano")
+    				{
+    					temporada=prompt("Error");
+    				}
 
-    	respuesta=prompt("Desea seguir ingresando datos?? si/no")
-    	while(!(respuesta=="si" || respuesta=="no"))
-    	{
-    		nombreIngresado=prompt("Error , desea seguir ingresando datos?? si/no");
-    		nombreIngresado=nombreIngresado.toLowerCase();
-    	}
+    			switch(temporada)
+    			{
+    				case "otoño":
+    				acumuladorOtoño=acumuladorOtoño + acumuladorTotales;
+    				break;
+    				case "invierno":
+    				acumuladorInvierno=acumuladorInvierno+acumuladorTotales;
+    				break;
+    				case "primavera":
+    				acumuladorPrimavera=acumuladorPrimavera+acumuladorTotales;
+    				break;
+    				case "verano":
+    				acumuladorVerano=acumuladorVerano+acumuladorTotales;
+    				break;
+    			}
+    		}
+
+         acumuladorTotales=acumuladorOtoño+acumuladorInvierno+acumuladorPrimavera+acumuladorVerano;
+         acumuladorOtoño=acumuladorOtoño/acumuladorTotales;
+         
+
+    		if(tipoReserva=="parejas")
+    		{
+    			if(acumuladorOtoño>acumuladorInvierno&&acumuladorOtoño>acumuladorPrimavera&&acumuladorOtoño>acumuladorVerano)
+    			{
+    				mensaje="otoño reservan mas las parejas";
+    			}
+    			else if(acumuladorInvierno>acumuladorPrimavera&&acumuladorInvierno>acumuladorVerano)
+    			{
+    				mensaje="invierno reservan mas las parejas";
+    			}
+
+    			else if(acumuladorPrimavera>acumuladorVerano)
+    			{
+    				mensaje="primavera reservan maslas parejas";
+    			}
+    			else
+    			{
+    				mensaje="verano reservan mas las parejas";
+    			}
+    		}
+
+    		document.write("En " + mensaje + "<br>");
+    		document.write("El total las personas que ingresaron en otoño" + totalOtoño + "<br>");
 
 
-    } while(respuesta=="si")
-
-    //saco promedio
-    if(edadIngresada<12 && edadIngresada>18)
-    promedioEdadIngresadaChina=edadIngresada/vacunaDada;
-    
-    alert("El promedio de las personas vacunas con la vacuna china es " + promedioEdadIngresadaChina);
-    
 
 
 }
 */
+  
+
 /*
-Julian Trasar Div E
-
-3. Llegan vuelos con vacunas de distintos lugares del mundo
-    Mientras el usuario quiera se debe registrar de cada vuelo:
-    -Origen (“Asia”, “Europa”, “América”)
-    -Cantidad de vacunas (entre 500000 y 2500000)
-    -Costo del vuelo (entre 1 millón y 5 millones de pesos)
-   Informar:
-    a- El origen que envió menor cantidad de vacunas
-    b- El total sin descuentos a pagar por los gastos de los viajes
-    c- Si en total se recibieron mas de 10 millones de vacunas se hace
-    un descuento de 25%, Si se recibieron entre 5 y 10 millones (inclusive) el
-    descuento es del 15% con menor cantidad no hay descuento.
-    Informar si hubo descuento de cuanto fue y el importe final con
-    Descuento.
-
-
+Ejercicio 3
+Una agencia de autos usados nos contrata para desarrollarle un software que permita la venta de sus autos, sin límite
+de cargas, debemos pedir los siguientes datos:
+- Marca (Fiat, Ford, Renault).
+- El color del auto (gris, azul, rojo).
+- Nombre del vendedor.
+- Validar que el kilometraje este entre (10.000 y 100000 kilómetros).
+Debemos informar:
+a) El nombre del vendedor que vendió el auto con más kilometraje.
+b) El porcentaje de autos azules que se vendieron.
+c) La marca del auto rojo con menos kilometraje.
 
 */
- /*function mostrar()
- {
- 	//declaramos variables
- 	var registroVuelo;
- 	var origen;
- 	var cantidadVacunas;
- 	var costoVuelo;
-    
-       
-
- }
-*/
-/*
-
-Realizar el desarrollo de una plataforma web que permita organizar recorridos para 
-recoletar aceites en restaurantes.El ingreso sera hasta que el usuario quiera. 
-
-La solución será planteada sobre una arquitectura flexible que permita
-a futuro realizar cambios, mejoras y sumar nuevas funcionalidades que 
-potencien las plataformas.
-
-se deben realizar  ingresos:
-	Zonas(CABA-BuenosAires-GBA)
-	Nombre de Choferes
-	Edad del chofer(mayor a 18 años)
-	Clientes(McDonals-Rodicio-SigaALaVaca)
-	CantidadDeAceite(entre 800 y 1500 Litros)
-debemos informar:
-a)La zona mas visitada 
-B)El nombre del chofer mas joven
-C)La mayor cantidad de aceite recolectada en Rodicio
-
-*/
-
- function mostrar()
- {
- 	//declaro variables
- 	var zonaIngresada;
- 	var nombreChofer;
- 	var edadChofer;
- 	var clientes;
- 	var cantidadAceite;
- 	var respuesta="si";
- 	var acumuladorCaba;
- 	var acumuladorBuenosAires;
- 	var acumuladorGba;
- 	var edadChoferJoven;
- 	var nombreChoferJoven;
- 	var nombre;
- 	var banderaUno=0;
- 	var banderaDos=0;
- 	var cantidadAceiteMayor;
- 	var zonaMasVisitada;
-
- 	 	while(respuesta="si")
- 	 	{
- 	 		zonaIngresada=prompt("Ingrese zona");
- 	 			while(zonaIngresada != "Caba" && zonaIngresada!= "Buenos Aires" && zonaIngresada!= "GBA")
- 	 			{
- 	 				zonaIngresada=prompt("Error,vuelva a ingresar la zona")
- 	 			}
- 	 		nombreChofer=prompt("Ingrese nombre del chofer")
- 	 			
- 	 		edadChofer=prompt("Ingrese edad del chofer")
- 	 		edadChofer=parseInt(edadChofer);
- 	 	    	while(isNaN(edadChofer>17))
- 	 	    	{
- 	 	    		edadChofer=prompt("Error,mayor del 17 años")
- 	 	    		edadChofer=parseInt(edadChofer);
- 	 	    	}
-
- 	 	     clientes=prompt("Ingrese un cliente")
- 	 	    
- 	 	     	while(clientes!= "McDonals" && clientes!= "Rodicio" && clientes!= "SigaALaVaca")
- 	 	    	 {
- 	 	     		clientes=prompt("Error,Ingrese clientes : McDonals-Rodicio-SigaALaVaca");
- 	 	    	 }
-
- 	 	    cantidadAceite=prompt("Ingrese cantidad de aceite")
- 	 	    cantidadAceite=parseInt(cantidadAceite);
- 	 	    	while(isNaN(cantidadAceite)|| cantidadAceite < 800 && cantidadAceite>1500)
- 	 	    	{
- 	 	    		cantidadAceite=prompt("Error , entre 800 y 1500");
- 	 	    		cantidadAceite=parseInt(cantidadAceite);
- 	 	    	}
-
- 	 	    	respuesta=prompt("Desea seguir ingresando datos ? si/no")
- 	 	    	while(!(respuesta=="si" || respuesta=="no"))
- 	 	    	{
- 	 	    		respuesta=prompt("Error , esea seguir ingresando datos ? si/no")
- 	 	    	}
-
- 	 	    switch(zonaIngresada)
- 	 	{
- 	 		case "Caba":
- 	 		acumuladorCaba=acumuladorCaba ++;
- 	 		break;
- 	 		case "Buenos Aires":
- 	 		acumuladorBuenosAires=acumuladorBuenosAires++;
- 	 		break;
- 	 		case "GBA":
- 	 		acumuladorGba=acumuladorGba++;
- 	 		break; 
- 	 	}
-
- 	 	}  
+function mostrar()
+{
+	//delcaramos variables
+	var marca;
+	var color;
+	var nombreVen;
+	var kilometros;
+	var nombreMayor;
+	var kilometrosMayor;
+	var respuesta="si";
 
 
- 	 	if(edadChoferJoven>edadChofer||banderaUno=0)
- 	 	{
-          edadChoferJoven=edadChofer;
-          nombreChoferJoven=nombre;
-          banderaUno=1;
+	var flag=0
+	var acumuladorAzul=0;
+	var acumuladorCantidadAutos;
+	var contadorColores=0;
+	var flagUno=0;
+	var marcaMenos;
+	var kilometrosMenor;
+	var promedio;
 
- 	 	} 
- 	 	if(cantidadAceiteMayor<cantidadAceite && cliente == "Rodicio" ||banderaDos=0)
- 	 	{
- 	 		cantidadAceiteMayor=cantidadAceite
- 	 		banderaDos=1;
- 	 	}
+		do
+		{
+			marca=prompt("Ingrese marca fiat , ford , renault");
+				while(marca!="fiat" && marca!="ford" && marca!="renault")
+				{
+					marca=prompt("Error");
+				}
 
- 	 	if(acumuladorCaba>acumuladorBuenosAires && acumuladorCaba>acumuladorGba)
- 	 	{
- 	 		zonaMasVisitada="Caba";
- 	 	}
- 	 	else if(acumuladorBuenosAires>acumuladorCaba && acumuladorBuenosAires>acumuladorCaba)
- 	 	{
- 	 		zonaMasVisitada="Buenos Aires";
- 	 	}
- 	 	else if(acumuladorGba>acumuladorBuenosAires && acumuladorGba>acumuladorCaba)
- 	 	{
- 	 		zonaMasVisitada="GBA";
- 	 	}
+			color=prompt("Ingrese color gris ,azul , rojo");
+			 	while(color!="gris" && color!="azul" && marca!="rojo");
+			 	{
+			 		marca=prompt("Error");
+			 	}
 
- 	 	document.write("la zona mas visitada es " + mensaje + "<br>");
- 	 	document.write("El nombre del chofer mas joven es " + nombreChoferJoven + "<br>");
- 	 	document.write("La mayor aceite recolectada de Rodicio es " + cantidadAceiteMayor + "<br>");
+			 	nombreVen=prompt("Ingrese nombre dle vendedor");
+
+			 kilometros=prompt("Ingrese kilometros")
+			 kilometros=parseInt(kilometros);
+			 	while(isNaN(kilometros) || kilometros<10000 || kilometros>100000)
+			 	{
+			 		kilometros=prompt("Error entre 10.000 y 100000")
+			 		kilometros=parseInt(kilometros);
+			 	}
+
+			 	if(flag==0|| kilometrosMayor<kilometros)
+			 	{
+			 		kilometrosMayor=kilometros;
+			 		nombreMayor=nombreVen;
+			 	}
+
+           acumuladorAzul=acumuladorAzul+acumuladorCantidadAutos;
+           contadorColores++,
+
+           if(color=="rojo" &&(flagUno==0; || kilometros<kilometrosMenor))
+           {
+           	kilometrosMenor=kilometros;
+           	marcaMenos=marca;
+           }
+
+
+          respuesta=prompt("Desea serguir ingresando datos si/no")
+            while(!(respuesta=="si" || respuesta=="no"))
+            {
+              respuesta=prompt("Error");
+            }
+      }while(respuesta=="si");
+
+        promedio=acumuladorAzul/contadorColores
+
+        document.write("El nombre del vendedor que vendió el auto con más kilometraje es " + nombreMayor + "<br>");
+        document.write("El porcentaje de autos azules que se vendieron es " + promedio + "<br>");
+        document.write(" La marca del auto rojo con menos kilometraje es " + marcaMenos + "<br>");
 
 
 
+          
+}
 
- }
- 
