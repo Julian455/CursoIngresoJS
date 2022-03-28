@@ -488,19 +488,10 @@ c)el doctor que más pacientes tuvo, sacar el promedio de edades.
    var doctor;
    var nombrePaciente;
    var respuesta="si";
+   var vacunasMinimas;
+   var pacientesMinimos;
+   var acumuladorPacientes;
 
-   var contadorMax=0;
-   var flagUno=0;
-   var edadMinima;
-   var nombreMinimo;
-   var acuEdadPerez=0;
-   var acuEdadLopez=0;
-   var acuEdadDiaz=0;
-   var contadorPerez=0;
-   var contadorLopez=0;
-   var contadorDiaz=0,
-   var promedioEdad;
-   var mensaje;
 
       do
       {
@@ -528,42 +519,20 @@ c)el doctor que más pacientes tuvo, sacar el promedio de edades.
 
          nombrePaciente=prompt("Ingrese el nombre");
 
-         if(vacunas=="0")
+         if(edad>60)
          {
-            if(edad>59)
+            if(flagUno==0 || vacunas<vacunasMinimas )
             {
-               contadoMax++;
-            }
-         }
-         //b) el menor paciente que tenga 1 dosis o más, su nombre y su edad.
-         else
-         {
-            if(flag==0 || edad<edadMinima)
-            {
-              edadMinima=edad;
-              nombreMinimo=nombrePaciente;
-              flagUno=1;
+               vacunasMinimas=vacunas;
+               acumuladorPacientes=acumuladorPacientes + nombrePaciente;
+               pacientesMinimos=nombrePaciente;
+               flagUno=1;
+
 
             }
          }
-         
-         //c)el doctor que más pacientes tuvo, sacar el promedio de edades.
-         switch(doctor)
-         {
-            case "perez":
-            acumuladorEdadPerez=acumuladorEdadPerez+edad;
-            contadorPerez++;
-            break;
-            case "lopez":
-            acumuladorEdadLopez=acumuladorEdadLopez+edad;
-            contadorLopez++;
-            break;
-            case "diaz"
-            acumuladorEdadDiaz=acumuladorEdadDiaz+edad;
-            contadorDiaz++;
-            break;
-         }
-          
+
+        
            respuesta=prompt("Desea serguir ingresando datos si/no")
                while(!(respuesta=="si" || respuesta=="no"))
                {
@@ -572,27 +541,7 @@ c)el doctor que más pacientes tuvo, sacar el promedio de edades.
 
       }while(respuesta=="si");
 
-      if(contadorPerez>contadorLopez && contadorPerez>contadorDiaz)
-      {
-         promedioEdad=acumuladorEdadPerez/contadorPerez;
-         mensaje=" doctor perez es el que mas pacientes tuvo";
-
-      }
-      else if(contadorLopez>contadorDiaz)
-      {
-         promedioEdad=acumuladorEdadDiaz/contadorDiaz;
-         mensaje="docotro lopez es el que mas pacientes tuvo";
-      }
-      else
-      {
-         promedioEdad=acumuladorEdadDiaz/contadorDiaz;
-         mensaje="doctor diazes el que mas pacientes tuvo";
-      }
-
-      document.write("La cantidad de paciente no vacunados que son mayor a 60 años son " + contadorMax + "<br>" );
-      document.write("El nombre dle menor pacientes es " + nombreMinimo + "y su edad es de " + edadMinima + ">br>");
-      document.write("el promedio de edad es " + promedioEdad + ". El " + mensaje + "<br>");
-
+   
 
 
 
@@ -701,3 +650,485 @@ mensaje:” usted es un gran vendedor”.
 
 }
 */
+
+/*
+Julian Trasar Div E
+
+Ejercicio 3
+Una agencia de autos usados nos contrata para desarrollarle un software que permita la venta de sus autos, sin límite
+de cargas, debemos pedir los siguientes datos:
+- Marca (Fiat, Ford, Renault).
+- El color del auto (gris, azul, rojo).
+- Nombre del vendedor.
+- Validar que el kilometraje este entre (10.000 y 100000 kilómetros).
+Debemos informar:
+a) El nombre del vendedor que vendió el auto con más kilometraje.
+b) El porcentaje de autos azules que se vendieron.
+c) La marca del auto rojo con menos kilometraje.
+
+*/
+/*function mostrar()
+{
+   var marca;
+	var color;
+	var nombre;
+	var kilometros;
+	var respuesta="si";
+
+	var nombreMaximo;
+	var kilometrosMax;
+	var flagMax=0;
+	var contadorAutos=0;
+	var contadorAzules=0;
+	var kilometrosMinimos;
+	var marcaMinimo;
+	var flagMinimo=0;
+	var porcentaje;
+
+      do 
+      {
+         marca=prompt("Ingrese marca fiat ford o renault");
+				while(marca!="fiat" && marca!="ford" && marca!="renault")
+				{
+					marca=prompt("Error");
+				}
+            color=prompt("Ingrese color gris azul o rojo");
+            while(color!="gris" && color!="azul" && color!="rojo")
+            {
+               color=prompt("Error");
+            }
+         
+         nombre=prompt("Ingrese nombre del vendedor");
+
+         kilometros=prompt("Ingrese kilometros 10.000 o 100000");
+			kilometros=parseInt(kilometros);
+			 while(isNaN(kilometros) || kilometros<10000 || kilometros>100000)
+			 {
+				 kilometros=prompt("error")
+				 kilometros=parseInt(kilometros);
+			 }
+
+          if(flagMax==0 || kilometros>kilometrosMax)
+			 {
+				 kilometrosMax=kilometros;
+				 nombreMaximo=nombre;
+				 flagMax=1;
+			 }
+
+			contadorAutos=contadorAutos + 1;
+
+			if(color == "azul")
+			{
+				contadorAzules=contadorAzules + 1;
+			}
+
+			if(color =="rojo")
+			{
+				if(flagMinimo==0 || kilometros<kilometrosMinimos)
+				{
+					kilometrosMinimos=kilometros;
+					marcaMinimo=marca;
+					flagMinimo=1;
+					
+				}
+				respuesta=prompt("Desea seguir ingresando datos si o no")
+					while(!(respuesta=="si" || respuesta=="no"))
+					{
+						respuesta=prompt("Error");
+					}
+			}
+		}while(respuesta=="si");
+			
+
+      if (contadorAzules>0)
+		{
+			porcentaje=contadorAzules/contadorAzules *100;
+		}
+
+		document.write("El nombre del vendedor que vendió el auto con más kilometraje es : " + nombreMaximo + "<br>");
+		document.write("El porcentaje de autos azules que se vendieron es :" + porcentaje + "<br>");
+		document.write("La marca del auto rojo con menos kilometraje es : " + marcaMinimo + "<br>");
+}
+
+*/
+
+/*
+1. Una empresa de venta de cosméticos necesita un programa que permita la carga de productos 
+vendidos,
+ junto a los datos del vendedor. Se requiere ingresar los siguientes campos: • Vendedor: Juan, María, Lucrecia
+• Tipo producto: Perfume, Shampoo o Maquillaje
+• Importe de la venta (Numero mayor que cero)
+No hay un límite total de ventas, y cada vendedor puede realizar varias ventas.
+Una vez finalizada la carga de productos vendidos se debe calcular la comisión del vendedor.
+Si la suma de las ventas realizadas por cada vendedor está entre 5000 y 10000, la comisión será del 
+15%.
+Si la comisión supera los 10000, la comisión será del 20%. En caso contrario la comisión será del 
+5%.
+Se debe mostrar:
+a. Promedio de ventas por cada vendedor.
+b. Cantidad de perfumes que vendió María
+c. El importe mas barato junto con el vendedor que lo vendió.
+d. El nombre del vendedor con menor comisión.
+
+*/
+/*function mostrar()
+{
+   var ingreseNombre;
+   var producto;
+   var importe;
+   var respuesta="si";
+   
+   var acumuladorJuan=0;
+   var contadorJuan=0;
+   var acumuladorMaria=0;
+   var contadorMaria=0;
+   var acumuladorLucrecia=0;
+   var contadorLucrecia=0;
+   var contadorPerfumes=0;
+   
+   var flag=0;
+   var importeBarato;
+   var vendedorBarato;
+
+   var promedioJuan;
+   var promedioMaria;
+   var promedioLucrecia;
+
+   var comisionJuan;
+   var comisionMaria;
+   var comisionLucrecia;
+
+   var mensaje;
+
+      do
+      {
+         ingreseNombre=prompt("Ingrese nombre: juan , maria o lucrecia")
+            while(ingreseNombre!="juan" && ingreseNombre!="maria" && ingreseNombre!="lucrecia")
+            {
+               ingreseNombre=prompt("Error ingrese juan , maria o lucrecia")
+            }
+
+         producto=prompt("Ingrese producto: perfume , shampoo o maquillaje")
+            while(producto!="perfume" && producto!="shampoo" && producto!="maquillaje")
+            {
+               producto=prompt("Error ingrese perfume , shampoo o maquillaje ")
+            }
+
+         importe=prompt("Ingrese importe de la venta")
+         importe=parseInt(importe);
+            while(isNaN(importe) || importe<0)
+            {
+               importe=prompt("Error el importe debe ser mayor a 0 ")
+               importe=parseInt(importe);
+            }
+
+         /*
+         total de ventas, y cada vendedor puede realizar varias ventas.
+         Una vez finalizada la carga de productos vendidos se debe calcular la comisión del vendedor.
+         b. Cantidad de perfumes que vendió María
+         */
+
+       /* switch(ingreseNombre)
+         {
+            case "juan":
+            acumuladorJuan=acumuladorJuan + importe;
+            contadorJuan=contadorJuan + 1;
+            break;
+            case "maria":
+            acumuladorMaria=acumuladorMaria + importe;
+            contadorMaria=contadorMaria + 1;
+            if(producto=="perfume")
+            {
+               contadorPerfumes + 1;
+            }
+            break;
+            case "lucrecia":
+            acumuladorLucrecia=acumuladorLucrecia + importe;
+            contadorLucrecia=contadorLucrecia + 1;
+            break;
+         }
+
+         //El importe mas barato junto con el vendedor que lo vendió.
+         if(flag==0 || importe<importeBarato)
+         {
+            importeBarato=importe
+            vendedorBarato=ingreseNombre;
+            flag=1;
+         }
+
+
+         respuesta=prompt("Quiere seguir ingresando datos si o no")
+            while(!(respuesta!="si" || respuesta!="no"))
+            {
+               respuesta=prompt("Error si o no");
+            }
+
+      }while(respuesta=="si");
+
+      //a. Promedio de ventas por cada vendedor.
+      promedioJuan=acumuladorJuan/contadorJuan;
+      promedioMaria=acumuladorMaria/contadorMaria;
+      promedioLucrecia=acumuladorLucrecia/contadorLucrecia;
+
+      /*
+      se debe calcular la comisión del vendedor.
+      Si la suma de las ventas realizadas por cada vendedor está entre 5000 y 10000,
+      la comisión será del 15%.
+      Si la comisión supera los 10000, la comisión será del 20%. En caso contrario la comisión será del 
+      5%.
+      */
+    /* if(acumuladorJuan>5000)
+     {
+        comisionJuan=acumuladorJuan *15/100;
+
+     }
+     else
+     {  
+        if(acumuladorJuan>10000)
+        comisionJuan=acumuladorJuan *20/100;
+
+        
+        {
+           comisionJuan=acumuladorJuan * 5/100;
+        }
+     }
+
+     if(acumuladorMaria>500)
+     {
+        comisionMaria=acumuladorMaria *15/100;
+     }
+     else
+     {
+        if(acumuladorMaria>10000)
+        {
+           comisionMaria=acumuladorMaria *20/100;
+        }
+        else
+        {
+           comisionMaria=acumuladorMaria *5/100;
+        }
+
+     }
+
+     if(acumuladorLucrecia>5000)
+     {
+        comisionLucrecia=acumuladorLucrecia * 15/100;
+     }
+     else
+     {
+        if(acumuladorLucrecia>10000)
+        {
+           comisionLucrecia=acumuladorLucrecia * 20/100;
+        }
+        else
+        {
+           comisionLucrecia=acumuladorLucrecia *5/100;
+        }
+     }
+
+     //d. El nombre del vendedor con menor comisión.
+     if(comisionJuan<contadorMaria && contadorJuan<comisionLucrecia)
+     {
+        mensaje="Juan es el vendedor con menor comision";
+     }
+     if(comisionMaria<comisionLucrecia)
+     {
+        mensaje="Lucrecia es la vendedora con menor comision";
+     }
+     else
+     {
+        mensaje="Lucrecia es la vendedora con menor comosion";
+     }
+
+     document.write("El promedio de ventas de Juan es: " + promedioJuan +"%" + "<br>");
+     document.write("El promedio de ventas de Maria es: " + promedioMaria +"%" + "<br>");
+     document.write("El promedio de ventas de Lucrecia es: " + promedioLucrecia +"%" + "<br>");
+     document.write("El importe mas barato es:" + importeBarato + " y el vendedor/a que lo vendio es: " + vendedorBarato + "<br>");
+     document.write(mensaje + "<br>");
+
+     /*
+ a. Promedio de ventas por cada vendedor.
+ b. Cantidad de perfumes que vendió María
+ c. El importe mas barato junto con el vendedor que lo vendió.
+ d. El nombre del vendedor con menor comisión.
+
+     */
+
+
+/*}
+*/
+
+/*
+2. Se necesita llevar el registro de un vacunatorio. Para ello se podrá registrar los datos de las 
+personas vacunadas mientras el usuario quiera.
+De cada vacunado se solicita:
+Nombre 
+Edad (mayor o igual a 12)
+Vacuna (“rusa”, “china”, “americana”)
+Si la edad esta entre 12 y 17 años ambos incluidos solo se permite la vacuna americana
+Dosis (“P” en caso de ser la primera dosis o “S” en caso de ser la segunda dosis)
+Genero (Femenino, Masculino)
+Informar:
+a- Promedio de edad de los que se vacunaron con la china.
+b- Nombre y vacuna del masculino más joven.
+c- De las personas que recibieron la vacuna americana que porcentaje son menores de edad
+d- Porcentaje de los que están vacunados con 1 dosis sobre el total de vacunados 
+e- Vacuna más inoculada
+
+*/
+function mostrar()
+{
+   var nombre;
+   var edad;
+   var vacuna;
+   var dosis;
+   var genero;
+   var respuesta="si";
+   var mensaje1;
+
+   var acumuladorChina=0;
+   var contadorChina=0;
+   var acumuladorRusia=0;
+   var acumuladorAmericana=0;
+   var mensaje;
+   var promedio;
+   
+   var flag=0;
+   var edadMinima;
+   var nombreMinimo;
+   var vacunaMinima;
+
+   var acumuladorMenorEdad=0;
+   var contadorMenorEdad=0;
+   var porcentajeMenor;
+
+   
+   var acumuladorPrimer=0;
+   var contadorPrimer=0;
+   var porcentaje;
+
+  
+   
+  
+
+   
+
+   
+
+      do
+      {
+         nombre=prompt("Ingrese su nombre");
+
+
+         edad=prompt("Ingrese edad"),
+         edad=parseInt(edad);
+            while(isNaN(edad) || edad>=12)
+            {
+              edad=prompt("Error mayor o igual a 12");
+              edad=parseInt(edad);
+            }
+            if(edad>12 && edad<17)
+            {
+               mensaje1="entre 12 y 17 años no se da la vacuna americana";
+            }            
+
+         vacuna=prompt("ingrese vacuna rusa china o americana")
+            while(vacuna!="rusa" && vacuna!="americana" && vacuna!="americana")
+            {
+               vacuna=prompt("Error rusa china o americana");
+            }
+
+         dosis=prompt("Ingrese p para primer dosis o s para segunda dosis");
+            while(dosis!="p" && dosis!="s")
+            {
+               dosis=prompt("Error ingrese p o s")
+            }
+         
+         genero=prompt("Ingrese genero masculino o femenimo (m o f)");
+            while(genero!="masculino" && genero!="femenino");
+            {
+               genero=prompt("Error")
+            }
+
+            //a- Promedio de edad de los que se vacunaron con la china.
+            switch(vacuna)
+            {
+               case "rusa":
+               acumuladorRusia=acumuladorRusia + vacuna;
+               break;
+               case "china":
+               acumuladorChina=acumuladorChina + vacuna;
+               contadorChina=contadorChina + 1;
+               break;
+               case "americana":
+               acumuladorAmericana=acumuladorAmericana + vacuna;
+               break;
+            }
+
+            //b- Nombre y vacuna del masculino más joven.
+            if(flag==0 || edad<edadMinima)
+            {
+               edadMinima=edad;
+               vacunaMinima=vacuna;
+               nombreMinimo=nombre;
+            }
+         
+         //c- De las personas que recibieron la vacuna americana que porcentaje son menores de edad
+         if(vacuna=="americana")
+         {
+            acumuladorMenorEdad=acumuladorMenorEdad + edad;
+            contadorMenorEdad=contadorMenorEdad + 1;
+         }
+
+         //Porcentaje de los que están vacunados con 1 dosis sobre el total de vacunados
+         if(dosis=="p")
+         {
+           acumuladorPrimer=acumuladorPrimer + dosis;
+           contadorPrimer=contadorPrimer + 1;
+         }
+
+         respuesta=prompt("quiere seguir ingresando datos si o no");
+            while(!(respuesta=="si" || respuesta=="no"))
+            {
+               respuesta=prompt("Error si o no");
+            }
+      }while(respuesta=="si");
+
+      promedio=acumuladorChina/contadorChina;
+
+      porcentaje= acumuladorPrimer/contadorPrimer
+
+      porcentajeMenor=acumuladorMenorEdad/contadorMenorEdad;
+
+      if(acumuladorRusia>acumuladorChina && acumuladorRusia>acumuladorAmericana)
+      {
+        mensaje="la vacuna rusa es la mas dada";
+      }
+      if(acumuladorChina>acumuladorAmericana)
+      {
+         mensaje="la vacuna china es la mas dada";
+      }
+      else
+      {
+         mensaje="la vacuna americana es la mas dada";
+      }
+      
+
+   document.write("El promedio de edad de los que se vacunaron con la china es : " + promedio + "<br>");
+   document.write("El nombre de la personas masculina mas joven es " + nombreMinimo + " y la vacuna que se dio es " + vacunaMinima + "<br>");
+   document.write("De las personas que recibieron la vacuna americana el porcentaje de menores de edad es " + porcentajeMenor + "<br>");
+   document.write("Porcentaje de los que están vacunados con 1 dosis sobre el total de vacunados es " + porcentaje + "<br>");
+   document.write(mensaje + "<br>");
+
+
+      
+
+
+/*
+a- Promedio de edad de los que se vacunaron con la china.
+b- Nombre y vacuna del masculino más joven.
+c- De las personas que recibieron la vacuna americana que porcentaje son menores de edad
+d- Porcentaje de los que están vacunados con 1 dosis sobre el total de vacunados 
+e- Vacuna más inoculada
+*/
+}
