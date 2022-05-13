@@ -22,7 +22,7 @@ function sumar()
 	numUno = parseInt(numUno);
 	numDos = parseInt(numDos);
 
-	//muestro resultado
+	//muestro resultado 
 	resultado = numUno + numDos;
 
 	alert("la suma es " + resultado);
