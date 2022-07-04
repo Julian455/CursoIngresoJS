@@ -2153,6 +2153,6 @@ function mostrar()
    document.write(mensaje + "<br>");
    document.write("El nombre del piloto que llevo mas personas a ushuaia es: " + nombreMaximo + "<br>");
    document.write("El promedio de la clase ejecutiva es: " + promedioEjectuvia + "<br>"); 
-
-}
+ //
+} 
 
