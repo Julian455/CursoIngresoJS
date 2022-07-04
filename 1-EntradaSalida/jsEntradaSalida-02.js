@@ -2060,7 +2060,7 @@ a) La clase con más pasajeros.
 b) El nombre del piloto que lleva más pasajeros a Ushuaia.
 c) El promedio de personas que usan la clase Ejecutiva.
 */
-function mostrar()
+/*function mostrar()
 {
   var nombre;
   var destino;
@@ -2153,6 +2153,15 @@ function mostrar()
    document.write(mensaje + "<br>");
    document.write("El nombre del piloto que llevo mas personas a ushuaia es: " + nombreMaximo + "<br>");
    document.write("El promedio de la clase ejecutiva es: " + promedioEjectuvia + "<br>"); 
- //
+ 
 } 
+*/
+function mostrar()
+{
+   var dato;
+
+   dato=prompt("Ingrese algo");
+
+   alert(dato);
+}
 

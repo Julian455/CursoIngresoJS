@@ -671,6 +671,10 @@ c) El apellido de la persona más joven con caries.*/
 	document.write("Apellido con caso de caries: " + apellidoMinima + "<br>");
 }
 */
+function mostrar()
+{
+	alert("esto funciona de maravilla");
+}
 
 
 
