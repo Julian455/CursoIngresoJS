@@ -2162,6 +2162,6 @@ function mostrar()
 
    dato=prompt("Ingrese algo");
 
-   alert(dato);
+   alert(dato); 
 }
 
