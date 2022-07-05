@@ -2156,9 +2156,19 @@ c) El promedio de personas que usan la clase Ejecutiva.
  
 } 
 */
+/*
+Julian Trasar
+Div E
+Ejercicio 2
+
+Al presionar el botón 'Mostrar'
+debemos lograr tomar un dato por '=prompt()'
+y luego mostrarlo por 'alert()'.
+
+*/
 function mostrar()
 {
-   var dato;
+   let dato;
 
    dato=prompt("Ingrese algo");
 

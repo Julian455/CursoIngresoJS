@@ -3,7 +3,7 @@ Julian Trasar Div E
 E/S ej 3
 Debemos lograr tomar un dato por 'ID'
 y luego mostrarlo por 'Alert' al presionar el botón  'mostrar'*/
-function mostrar()
+/*function mostrar()
 {
 
 	//declaramos variable
@@ -19,7 +19,7 @@ function mostrar()
 	
 }
 
-
+*/
 //txtIdNombre
 /*
 
@@ -32,3 +32,20 @@ procesos:
 -id
 
 */
+/*
+Julian Trasar
+Div E
+Ejercicio 3
+al presionar el botón 'mostrar',
+Debemos lograr tomar un dato por ID.value
+y luego mostrarlo por 'alert()'
+
+*/
+function mostrar()
+{
+ let nombreIngresado;
+
+ nombreIngresado=document.getElementById("txtIdNombre").value;
+
+ alert(nombreIngresado);
+}
