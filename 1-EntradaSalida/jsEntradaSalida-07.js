@@ -182,3 +182,5 @@ function multiplicar()
 
 		alert("La multiplicacion es: " + resultado);
 }
+
+
