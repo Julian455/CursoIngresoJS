@@ -687,7 +687,7 @@ c) La cantidad de Mujeres que hay solteras o viudas.
 d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
 e) El promedio de edad entre las mujeres casadas.
 */
-function mostrar()
+/*function mostrar()
 {
  let nombre;
  let nacionalidd;
@@ -787,8 +787,263 @@ function mostrar()
 	document.write(" personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura son: " + personasTerceraEdad + "<br>");
 	document.write("El promedio de edad de mujeres casadas es: " + promedio + "<br>");
 }
+*/
+
+/*
+Bienvenidos.
+Realizar el algoritmo que permita iterar el ingreso 
+de dos datos, una letra y un número entre -100 y 100 (validar) 
+hasta que el usuario quiera e informar al terminar el ingreso por document.write:
+a) La cantidad de números pares.
+b) La cantidad de números impares.
+c) La cantidad de ceros.
+d) El promedio de todos los números positivos ingresados.
+e) La suma de todos los números negativos.
+f) El número y la letra del máximo y el mínimo.
+
+*/
+/*function mostrar()
+{
+ let letras;
+ let numero;
+ let respuesta="si";
+
+ let contadorPares=0;
+ let contadorImpares=0;
+ let contadorCeros=0;
+
+ let contadorPositivos=0;
+ let acumuladorPositivos=0;
+ let promedioPositivos;
+ let contadorNegativos=0;
+
+ let flag=0;
+ let letraMax;
+ let numeroMax;
 
 
+
+	do
+	{
+		letras=prompt("Ingrese una letra");
+
+		numero=prompt("Ingrese un numero");
+		numero=parseInt(numero);
+			while(isNaN(numero) || numero<-100 || numero>100)
+			{
+				numero=prompt("Error es entre -100 y 100");
+			}
+
+			if(numero% 2 ==0)
+			{
+				contadorPares=contadorPares + 1;
+			}
+
+			if(numero%2 ==1)
+			{
+				contadorImpares=contadorImpares + 1;
+			}
+
+		 if(numero>0)
+		 {
+			acumuladorPositivos=acumuladorPositivos + numero;
+			contadorPositivos=contadorPositivos + 1;
+			
+		 }
+		 else
+		 {
+			if(numero<0)
+			{
+				contadorNegativos=contadorNegativos + 1;
+   
+			}
+			else
+			{
+				contadorCeros=contadorCeros + 1;
+			}
+		   
+		 }
+		
+
+		 if(flag==0 || numero>numeroMax)
+		 {
+			numeroMax=numero;
+			letraMax=letras;
+			flag=1;
+		 }
+
+		 respuesta=prompt("Desea seguir ingresando datos si o no?");
+		 	while(!(respuesta1="si" || respuesta!="no"))
+			{
+				respuesta=prompt("Error si o no");
+			}
+
+	}while(respuesta=="si")
+
+	promedioPositivos=acumuladorPositivos/contadorPositivos;
+
+	document.write("La cantidad de numeros pares es: " + contadorPares + "<br>");
+	document.write("La cantidad de numeros impares es: " + contadorImpares + "<br>");
+	document.write("La suma de los numeros negativos es: " + contadorNegativos + "<br>");
+	document.write("La cantidad de ceros es: " + contadorCeros + "<br>");
+	document.write("La letra maxima es: " + letraMax + " y el numero maximo es: " + numeroMax + "<br>");
+	document.write("El promedio de numero positivos es: " + promedioPositivos + "<br>");
+	 
+}
+*/
+
+/*
+1. En una pizzería el cajero debe ir cargando los pedidos de los clientes. 
+Los datos que se tienen que ingresar son:
+Nombre, edad, qué tipo de pizza (muzza, cebolla o rellena), cantidad de pizzas(del mismo tipo) y precio por el total del pedido.
+Esto se debe cargar hasta que el cajero decida.
+Al final, se deberá presentar:
+La cantidad de personas cuya edad supere los 25 años, que hayan comprado una pizza de muzza o cebolla.
+Cuál fue el promedio de precios por tipo de pizza.
+El nombre de la persona que realizó la compra más barata.
+
+*/
+/*function mostrar()
+{
+	let nombre;
+	let edad;
+	let tipo;
+	let cantidad;
+	let precio;
+	let respuesta="si";
+
+	let contadorMuzza=0;
+	let acumuladorMuzza=0;
+	let contadorCebolla=0;
+	let acumuladorCebolla=0;
+	let contadorRellena=0;
+	let acumuladorRellena=0;
+	let acumuladorCantidadMuzza=0;
+	let acumuladorCantidadCebolla=0;
+	let acumuladorCantidadRellena=0;
+
+	let flag=0;
+	let precioBarato;
+	let nombreBarato;
+
+	let mensaje;
+	let promedioMuzza;
+	let promedioCebolla;
+	let promedioRellena;
+
+
+		do
+		{
+			nombre=prompt("Ingrese su nombre");
+
+			edad=prompt("Ingrese su  edad");
+			edad=parseInt(edad);
+				while(isNaN(edad)|| edad<1 || edad>100)
+				{
+					edad=prompt("Error");
+					edad=parseInt(edad);
+				}
+
+			tipo=prompt("Ingrese que tipo de pizza quiere muzza , cebolla o rellena");
+				while(tipo!="muzza" && tipo!="cebolla" && tipo!="rellena")
+				{
+					tipo=prompt("Error");
+				}
+			
+			cantidad=prompt("Ingrese cantidad");
+			cantidad=parseInt(cantidad);
+
+			precio=prompt("Ingrese precio del total del pedido");
+			precio=parseInt(precio);
+
+			if(edad>25)
+			{
+				switch(tipo)
+				{
+					case "muzza":
+					contadorMuzza=contadorMuzza + 1;
+					break;
+					case "cebolla":
+					contadorCebolla=contadorCebolla + 1;
+					break;
+					case "rellena":
+					contadorRellena=contadorRellena + 1;
+				}
+				
+			}
+
+			switch(tipo)
+				{
+					case "muzza":
+					acumuladorMuzza=acumuladorMuzza + precio;
+					acumuladorCantidadMuzza=acumuladorCantidadMuzza + cantidad;
+					
+					break;
+					case "cebolla":
+					acumuladorCebolla=acumuladorCebolla + precio;
+					acumuladorCantidadCebolla=acumuladorCantidadCebolla + cantidad;
+					
+					break;
+					case "rellena":
+				    acumuladorRellena=acumuladorRellena + precio;
+					acumuladorCantidadRellena=acumuladorCantidadRellena + cantidad;
+		
+					break;
+				}
+
+			if(flag==0 || precio<precioBarato)
+			{
+				precioBarato=precio;
+				nombreBarato=nombre;
+				flag=1;
+			}
+
+			respuesta=prompt("Quiere seguir ingresando datos si o no ??");
+				while(!(respuesta=="si" || respuesta=="no"))
+				{
+					respuesta=prompt("Error si o no ");
+				}
+
+		}while(respuesta=="si");
+
+		promedioMuzza=acumuladorMuzza/acumuladorCantidadMuzza;
+
+		promedioCebolla=acumuladorCebolla/acumuladorCantidadCebolla;
+
+		promedioRellena=acumuladorRellena/acumuladorCantidadRellena;
+
+		if(contadorMuzza>contadorCebolla && contadorMuzza>contadorRellena)
+		{
+          mensaje="La pizza de muzza es la mas comprada por personas mayores a 25 años";
+		}
+		else if(contadorCebolla>contadorRellena)
+		{
+			mensaje="La pizza de cebolla es la mas comprada por personas mayores a 25 años";
+		}
+		else
+		{
+			mensaje="La pizza rellena es la comprada por personas mayores a 25 años";
+		}
+
+		document.write(mensaje + "<br>");
+		document.write("El promedio de compras de la pizza de muzza es: " + promedioMuzza + "<br>");
+		document.write("El promedio de compra de pizza de cebolla es: " + promedioCebolla + "<br>");
+		document.write("El promedio de compra de pizza rellena es: " + promedioRellena + "<br>");
+
+		
+}
+
+*/
+/*
+Julian Trasar Div E
+Ejercicio 1
+Bienvenidos.
+Al presionar el botón, se debe mostrar un mensaje como el siguiente "Esto funciona de maravilla".
+*/
+function mostrar()
+{
+	alert("esto funciona de maravilla");
+}
 
 
 

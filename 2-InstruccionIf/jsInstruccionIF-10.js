@@ -1,6 +1,6 @@
 /*
 Julian Trasar Div E 
-EJ if 10
+Ejercicio if 10
 Al presionar el Botón, asignar una nota RANDOM al examen y mostrar:
 "EXCELENTE" para notas igual a 9 o 10,
 "APROBÓ" para notas mayores a 4,
@@ -10,8 +10,8 @@ Al presionar el Botón, asignar una nota RANDOM al examen y mostrar:
 function mostrar()
 {
 	//declaramos variables
-	var numero;
-	var aleatorio;
+	let numero;
+	let aleatorio;
 	
      aleatorio = Math.random();
 	 numero = Math.floor(aleatorio * (10 - 1 + 1) + 1);
@@ -20,29 +20,20 @@ function mostrar()
 	 if(numero >= 9)
 
 	 {
-	 	alert("excelente aprobo");
+	     console.log("excelente aprobo");
 	 }
 
-	 else if(numero >4 && numero <=10)
+	 else if(numero>=4 && numero <=10)
 
 	 {
-	 	alert("aprobo ");
-
+	 	console.log("aprobo ");
 
 	 }
 
 	 else
 
 	 {
-	 	alert("desaprobo , Vamos, la proxima se puede ");
+	 	console.log("desaprobo , Vamos, la proxima se puede ");
 	 }
 
-
-
-	
-
-
-	 
-
-
-}//FIN DE LA FUNCIÓN
+}

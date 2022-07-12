@@ -1,4 +1,5 @@
-/* Julian Trasar Div E
+/* 
+Julian Trasar Div E
 TP3
 3.	Para el departamento de Pinturas:
 A.	Al ingresar una temperatura en Fahrenheit debemos mostrar la temperatura en Centígrados con un mensaje concatenado (ej.: " 32 Fahrenheit son 0 centígrados").
@@ -14,14 +15,13 @@ function FahrenheitCentigrados ()
 	temperatura = document.getElementById("txtIdTemperatura").value;
     
     //transforma es texto en numero 
-	temperatura=parseFloat(temperatura);
+	temperatura=parseInt(temperatura);
     
     //cuenta 
     centigrados = (temperatura - 32) * 5/9;
     
     //mostrar por alert " 32 Fahrenheit son 0 centígrados"
-    alert(temperatura + " Fahrenheit son " + centigrados);
-
+    alert(temperatura + " Fahrenheit son " + centigrados + " centigrados");
 	}
 
 function CentigradosFahrenheit () 
@@ -34,11 +34,12 @@ function CentigradosFahrenheit ()
 
    //tomo dato por id
    temperatura = document.getElementById("txtIdTemperatura").value;
+   temperatura=parseInt(temperatura);
 
    fahrenheit = (temperatura * 9/5) + 32;
 
    //mostramos por alert "0  centígrados son 32 Fahrenheit "
-   alert(temperatura + " centigrados son " + fahrenheit + " fahrenheit " );
+   alert(temperatura + " centigrados son " + fahrenheit + " fahrenheit" );
 
 	
 }

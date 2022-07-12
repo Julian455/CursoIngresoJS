@@ -1,12 +1,12 @@
 /*
  Julian Trasar Div E
- EJ if 3
+ Ejercicio if 3
 Al ingresar una edad debemos informar si la persona es mayor de edad, sino informar que es un menor de edad.
 */
 function mostrar()
 {
 	//declaramos variables
-	var edad;
+	let edad;
     
     //traemos la edad por id
 	edad = document.getElementById("txtIdEdad").value;
@@ -14,23 +14,19 @@ function mostrar()
     //parseamos edad
 	edad=parseInt(edad);
 
-	if(edad >= 18) //edad>17
+	if(edad >= 18)
 
 	{
-		alert("usted es mayor de edad"); //dondicion verdadera o falsa;
-
+		alert("usted es mayor de edad"); 
 	}
 
-   	 else //usamos el else 
+   	 else
 
     {
    	 
    	 	alert("usted es menor de edad");
     }
 
+}
 
-   	 	alert("fin");
-
- 	}
-
-  //fin de la funcion
+ 

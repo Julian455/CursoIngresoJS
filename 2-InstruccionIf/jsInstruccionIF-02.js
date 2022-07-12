@@ -1,17 +1,17 @@
 /*
 Julian Trasar Div E
-Ej if 2
+Ejercico if 2
 Al ingresar una edad debemos informar solo si la persona es mayor de edad
-
 */
-
 function mostrar()
 {
 	//declaramos variables 
-	var edad;
-
+	let edad;
+    
+	//tomamos datos
 	edad=document.getElementById("txtIdEdad").value;
-
+    
+	//parseamos
 	edad=parseInt(edad);
 
 	if(edad >= 18)
@@ -21,4 +21,4 @@ function mostrar()
 	}
 	
 
-}//FIN DE LA FUNCIÓN
+}

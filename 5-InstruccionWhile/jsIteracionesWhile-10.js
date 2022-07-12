@@ -27,7 +27,7 @@ function mostrar()
 	var cantidadNumerosPares=0;
 	var promedioPositivos=0;
 	var promedioNegativos=0;
-	var Diferencia; 
+	var diferencia; 
 
 	respuesta="si";
 
